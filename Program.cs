@@ -13,7 +13,7 @@ Console.WriteLine("Please look through our offerings.");
 
 //Generate the menu on the user's console
 Console.WriteLine("-------------------------------------------------------" +
-    "\nThe following supplies are available:"+
+    "\nThe following supplies are available:" +
     "\n\n1 - Rope" +
     "\n2 - Torches" +
     "\n3 - Climbing Equipment" +
@@ -26,7 +26,7 @@ Console.WriteLine("-------------------------------------------------------" +
 
 
 //switch user input to correct output
-choice = Convert.ToInt16( Console.ReadLine());
+choice = Convert.ToInt16(Console.ReadLine());
 response = choice switch
 {
     1 => "Rope",
@@ -36,7 +36,7 @@ response = choice switch
     5 => "Machetes",
     6 => "Canoes",
     7 => "Food",
-    _ => "Sorry, we don't carry any of those."
+    _ => "something we don't sell."
 };
 
 cost = choice switch
@@ -51,14 +51,21 @@ cost = choice switch
     _ => 0
 };
 
-//Determine if discount is applied and provide output regardless of customer name.
-if (name == "Clinton" ||name == "clinton")
+if (cost != 0)
 {
-    Console.WriteLine(name+", I see you are in the market for " + choice + ". Since you are such a good friend, I will only charge you " + cost / 2 + " gold.");
+    //Determine if discount is applied and provide output regardless of customer name.
+    if (name == "Clinton" || name == "clinton")
+    {
+        Console.WriteLine(name + ", I see you are in the market for " + choice + ". Since you are such a good friend, I will only charge you " + cost / 2 + " gold.");
+    }
+    else
+    {
+        Console.WriteLine(name + ", I see you are in the market for " + choice + ". That will be " + cost + " gold.");
+    }
 }
 else
 {
-    Console.WriteLine(name + ", I see you are in the market for " + choice + ". That will be " + cost + " gold.");
+    Console.WriteLine(name + ", I'm sorry we do not sell those here.");
 }
 
 //Hold from closing
