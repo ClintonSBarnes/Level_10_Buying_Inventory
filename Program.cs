@@ -51,9 +51,9 @@ cost = choice switch
     _ => 0
 };
 
+//Accounting for invalid input, if valid, then checking for discount. Finally, processing final statement.
 if (cost != 0)
 {
-    //Determine if discount is applied and provide output regardless of customer name.
     if (name == "Clinton" || name == "clinton")
     {
         Console.WriteLine(name + ", I see you are in the market for " + choice + ". Since you are such a good friend, I will only charge you " + cost / 2 + " gold.");
@@ -63,6 +63,7 @@ if (cost != 0)
         Console.WriteLine(name + ", I see you are in the market for " + choice + ". That will be " + cost + " gold.");
     }
 }
+//if there is an invalid input, then this is returned.
 else
 {
     Console.WriteLine(name + ", I'm sorry we do not sell those here.");
